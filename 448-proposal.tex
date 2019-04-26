@@ -1,9 +1,21 @@
-\documentclass[sigconf,nonacm=true,10pt]{acmart}
+\documentclass[manuscript]{acmart}
+
+\usepackage{blindtext}
+
+\usepackage{xpatch}
+
+\makeatletter
+\xpatchcmd{\ps@firstpagestyle}{Manuscript submitted to ACM}{}{\typeout{First patch succeeded}}{\typeout{first patch failed}}
+\xpatchcmd{\ps@standardpagestyle}{Manuscript submitted to ACM}{}{\typeout{Second patch succeeded}}{\typeout{Second patch failed}}    \@ACM@manuscriptfalse% Also in titlepage
+\makeatother
+\settopmatter{printacmref=false} % Removes citation information below abstract
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference info
+\setcopyright{none}
+\pagestyle{plain} % remove running headers
 
 \begin{document}
 \title{CPSC 448 Directed Studies Proposal}
 \subtitle{Implementing Type-Preserving Compilation for Dependently-Typed Languages, with the A-Normal Form Transformation and Typed Closure Conversion}
-
 \author{Ramon Rakow}
 \affiliation{%
  \institution{University of British Columbia}
@@ -11,8 +23,12 @@
  \country{Canada}
 }
 \email{ramon.rakow@alumni.ubc.ca}
-
 \maketitle
+
+\textbf{Work Period:}
+\text{May 1, 2019 - Aug 25, 2019}\\
+\textbf{Supervisor:}
+\text{Dr. William J. Bowman}
 
 \section{Introduction}
 
